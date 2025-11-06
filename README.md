@@ -74,20 +74,29 @@ See [INTERVENTIONS.md](INTERVENTIONS.md) for the complete list with personality 
    cd date-an-intervention
    ```
 
-2. **Configure API keys**
+2. **Generate Xcode project** (requires [XcodeGen](https://github.com/yonaskolb/XcodeGen))
+   ```bash
+   brew install xcodegen  # If not already installed
+   xcodegen generate
+   ```
+
+   See [README.xcodegen.md](README.xcodegen.md) for detailed instructions.
+
+3. **Configure API keys**
    ```bash
    cp .env.example .env
    # Edit .env and add your API key
    ```
 
-3. **Open in Xcode**
+4. **Open in Xcode**
    ```bash
    open DateAnIntervention.xcodeproj
    ```
 
-4. **Build and run**
-   - Select your target device/simulator
+5. **Build and run**
+   - Select your target device/simulator (iOS 18.0+)
    - Press Cmd+R to build and run
+   - Intervention data will seed automatically on first launch
 
 ### API Configuration
 
