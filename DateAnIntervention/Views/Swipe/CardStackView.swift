@@ -16,6 +16,9 @@ struct CardStackView: View {
     @State private var dragRotation: Double = 0
     @State private var hasReachedThreshold = false
 
+    // Profile detail state
+    @State private var selectedIntervention: Intervention?
+
     // Constants
     private let swipeThreshold: CGFloat = 100
     private let rotationMultiplier: Double = 0.15
@@ -44,6 +47,11 @@ struct CardStackView: View {
                         // Apply drag gesture only to top card
                         .offset(index == 0 ? dragOffset : .zero)
                         .rotationEffect(.degrees(index == 0 ? dragRotation : 0))
+                        .onTapGesture {
+                            if index == 0 {
+                                selectedIntervention = intervention
+                            }
+                        }
                         .gesture(
                             index == 0 ? createDragGesture() : nil
                         )
@@ -55,6 +63,9 @@ struct CardStackView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .sheet(item: $selectedIntervention) { intervention in
+            ProfileDetailView(intervention: intervention)
         }
     }
 
@@ -205,7 +216,7 @@ struct CardStackView: View {
     }
 
     private func cardHeight(for geometry: GeometryProxy) -> CGFloat {
-        min(geometry.size.height * 0.75, 650)
+        min(geometry.size.height * 0.80, 700)
     }
 }
 

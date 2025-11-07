@@ -13,6 +13,8 @@ struct MatchesView: View {
     @Query(filter: #Predicate<SwipeDecision> { $0.liked == true })
     private var likedDecisions: [SwipeDecision]
 
+    @State private var selectedIntervention: Intervention?
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -21,12 +23,15 @@ struct MatchesView: View {
                 } else {
                     ScrollView {
                         LazyVGrid(columns: [
-                            GridItem(.flexible()),
-                            GridItem(.flexible())
+                            GridItem(.flexible(), alignment: .top),
+                            GridItem(.flexible(), alignment: .top)
                         ], spacing: 16) {
                             ForEach(likedDecisions, id: \.id) { decision in
                                 if let intervention = decision.intervention {
                                     MatchCardView(intervention: intervention)
+                                        .onTapGesture {
+                                            selectedIntervention = intervention
+                                        }
                                 }
                             }
                         }
@@ -35,6 +40,9 @@ struct MatchesView: View {
                 }
             }
             .navigationTitle("Matches")
+            .sheet(item: $selectedIntervention) { intervention in
+                ProfileDetailView(intervention: intervention)
+            }
         }
     }
 }
@@ -63,7 +71,7 @@ struct MatchCardView: View {
     let intervention: Intervention
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 8) {
             ZStack {
                 LinearGradient(
                     colors: intervention.gradientColors.compactMap { Color(hex: $0) },
@@ -83,8 +91,10 @@ struct MatchCardView: View {
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .top)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, alignment: .top)
     }
 }
 
