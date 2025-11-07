@@ -47,9 +47,9 @@ The app supports two LLM providers:
        <key>LLM_MODEL</key>
        <string>gpt-4o</string>
        <key>LLM_TEMPERATURE</key>
-       <string>0.8</string>
+       <string>0.9</string>
        <key>LLM_MAX_TOKENS</key>
-       <string>250</string>
+       <string>150</string>
    </dict>
    </plist>
    ```
@@ -86,12 +86,13 @@ Specify which model to use:
 #### LLM_TEMPERATURE
 Controls response creativity (0.0 - 1.0):
 - `0.0` - More focused and deterministic
-- `0.8` - Default, balanced creativity
+- `0.9` - Default (flirty mode!), high creativity
 - `1.0` - Maximum creativity
 
 #### LLM_MAX_TOKENS
 Maximum length of responses:
-- `250` - Default, short responses
+- `150` - Default (Tinder-style!), very short and punchy
+- `250` - Short responses
 - `500` - Medium responses
 - `1000` - Longer responses (costs more)
 

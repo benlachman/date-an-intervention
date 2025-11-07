@@ -37,14 +37,14 @@
 - **Spring animations** for smooth card movements
 - **Empty state** with deck reset functionality
 
-#### 🗂️ 32 Climate Interventions (Phase 2 - COMPLETE!)
+#### 🗂️ 50 Climate Interventions (Phase 2 - COMPLETE!)
 **Categories:**
-- **Stratospheric/SRM** (3): SAI, Marine Cloud Brightening, Cirrus Thinning
-- **Ice Preservation** (4): Ice Sheet Stabilization, Arctic Restoration, Glacier Protection, Permafrost Protection
-- **Ocean-Based** (6): Iron Fertilization, Alkalinity Enhancement, Coral Nano-Bubbles, Artificial Upwelling, Kelp Farming, Hydrogen from Algae
-- **Land-Based** (7): Enhanced Weathering, Biochar, Afforestation, Soil Carbon, Peatland Restoration, Engineered Crops
-- **Localized** (8): Urban Albedo, Mangroves, Wetlands, Green Roofs, Urban Forestry, Cloud Seeding, Desert Greening, Fog Harvesting
-- **Advanced/Emerging** (4): Direct Air Capture, BECCS, Mineralization, Space Reflectors
+- **Stratospheric/SRM** (13): SAI, Marine Cloud Brightening, Cirrus Thinning, Ocean Surface Albedo, Ice Crystal Seeding, Crop Albedo, Desert Reflectivity, Non-Sulfate Particles, Tethered Balloons, Cloud Management, and more
+- **Ice Preservation** (5): Ice Sheet Stabilization, Arctic Restoration, Glacier Protection, Permafrost Protection, Ice-Albedo Enhancement
+- **Ocean-Based** (11): Iron Fertilization, Alkalinity Enhancement, Coral Nano-Bubbles, Artificial Upwelling, Kelp Farming, Hydrogen from Algae, Coastal Upwelling, Basalt Beaches, Biomass Sinking, Electrochemical Removal, Regenerative Farming
+- **Land-Based** (6): Enhanced Weathering, Biochar, Afforestation, Soil Carbon, Peatland Restoration, Engineered Crops
+- **Localized** (7): Urban Albedo, Mangroves, Wetlands, Green Roofs, Urban Forestry, Cloud Seeding, Desert Greening, Fog Harvesting
+- **Advanced/Emerging** (8): Direct Air Capture, BECCS, Mineralization, Space Reflectors, Lunar Dust, Methane Removal, Artificial Photosynthesis, Microbial Mineralization
 
 **Each intervention includes:**
 - Unique personality and bio
@@ -150,7 +150,7 @@
 6. **Build and run**
    - Select your target device/simulator (iOS 18.0+)
    - Press `Cmd+R` to build and run
-   - **32 interventions seed automatically** on first launch!
+   - **50 interventions seed automatically** on first launch!
 
 ---
 
@@ -170,7 +170,7 @@ DateAnIntervention/
 │   ├── InterventionsData.swift   # JSON loader
 │   └── SeedDataService.swift     # First-launch seeding
 ├── Resources/                    # Data files
-│   └── interventions.json        # 32 interventions data
+│   └── interventions.json        # 50 interventions data
 ├── Views/
 │   ├── Swipe/                    # Swipe interface
 │   │   ├── SwipeView.swift
@@ -205,7 +205,7 @@ DateAnIntervention/
 
 - **[API_SETUP.md](API_SETUP.md)** - **Required**: API key configuration for chat feature
 - **[TASKS.md](TASKS.md)** - Complete implementation roadmap with progress tracking
-- **[INTERVENTIONS.md](INTERVENTIONS.md)** - Full catalog of 32 climate interventions with personalities
+- **[INTERVENTIONS.md](INTERVENTIONS.md)** - Full catalog of 50 climate interventions with personalities
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - System design and technical architecture
 - **[STYLE_GUIDES.md](STYLE_GUIDES.md)** - UI/UX design principles and dating app aesthetic
 - **[README.xcodegen.md](README.xcodegen.md)** - XcodeGen setup and usage
