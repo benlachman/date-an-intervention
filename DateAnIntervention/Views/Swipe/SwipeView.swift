@@ -90,7 +90,7 @@ struct SwipeView: View {
                     .frame(width: 40, height: 40)
                     .background(
                         Circle()
-                            .fill(Color(uiColor: .systemBackground))
+                            .fill(.ultraThinMaterial)
                             .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
                     )
             }
