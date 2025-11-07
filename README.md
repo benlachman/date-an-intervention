@@ -204,6 +204,7 @@ DateAnIntervention/
 ## 📚 Documentation
 
 - **[API_SETUP.md](API_SETUP.md)** - **Required**: API key configuration for chat feature
+- **[TESTFLIGHT_SETUP.md](TESTFLIGHT_SETUP.md)** - TestFlight beta testing and Xcode Cloud CI/CD setup
 - **[TASKS.md](TASKS.md)** - Complete implementation roadmap with progress tracking
 - **[INTERVENTIONS.md](INTERVENTIONS.md)** - Full catalog of 50 climate interventions with personalities
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - System design and technical architecture
