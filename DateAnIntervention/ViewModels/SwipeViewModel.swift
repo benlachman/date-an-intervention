@@ -44,16 +44,15 @@ class SwipeViewModel {
 
         do {
             let allInterventions = try modelContext.fetch(descriptor)
+
+            // Get all swipe decisions
+            let swipeDescriptor = FetchDescriptor<SwipeDecision>()
+            let allDecisions = try modelContext.fetch(swipeDescriptor)
+            let swipedInterventionIds = Set(allDecisions.compactMap { $0.intervention?.id })
+
             // Filter out interventions that have already been swiped
             interventions = allInterventions.filter { intervention in
-                // Check if there's already a swipe decision for this intervention
-                let swipeDescriptor = FetchDescriptor<SwipeDecision>(
-                    predicate: #Predicate<SwipeDecision> { decision in
-                        decision.intervention?.id == intervention.id
-                    }
-                )
-                let existingDecisions = (try? modelContext.fetchCount(swipeDescriptor)) ?? 0
-                return existingDecisions == 0
+                !swipedInterventionIds.contains(intervention.id)
             }
         } catch {
             print("Error loading interventions: \(error)")
