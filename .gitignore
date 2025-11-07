@@ -63,3 +63,6 @@ fastlane/test_output
 
 # Environment Variables
 .env
+
+# API Keys Configuration
+Config.plist

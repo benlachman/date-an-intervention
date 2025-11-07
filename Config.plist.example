@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>OPENAI_API_KEY</key>
+    <string>sk-proj-your_openai_key_here</string>
+    <key>ANTHROPIC_API_KEY</key>
+    <string>sk-ant-your_anthropic_key_here</string>
+    <key>LLM_PROVIDER</key>
+    <string>openai</string>
+    <key>LLM_MODEL</key>
+    <string>gpt-4o</string>
+    <key>LLM_TEMPERATURE</key>
+    <string>0.8</string>
+    <key>LLM_MAX_TOKENS</key>
+    <string>250</string>
+</dict>
+</plist>

@@ -6,7 +6,7 @@
 
 **Status**: 🚧 Active Development
 
-**Phase**: 3 of 10 Complete | **Next**: Profile Details & AI Chat
+**Phase**: 5 of 10 Complete | **Next**: Enhanced Matches
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-18.0+-blue.svg)](https://www.apple.com/ios/)
@@ -54,6 +54,24 @@
 - Chat personality and system prompt
 - Opening line for matches
 
+#### 👤 Profile Details (Phase 4 - COMPLETE!)
+- Full-screen intervention profiles with scrolling content
+- Beautiful image carousel with SF Symbol icons
+- Stats grid visualization (research, tech, support scores)
+- Expandable pros/cons lists
+- Gradient message button with glass-like background
+- Smooth navigation and transitions
+
+#### 💬 AI Chat (Phase 5 - COMPLETE!)
+- Real-time conversations with matched interventions
+- **Multi-provider support**: OpenAI (ChatGPT-4o) or Anthropic (Claude)
+- Secure API key management (never committed to git)
+- Each intervention uses unique personality prompts
+- Chat history persistence with SwiftData
+- Message bubbles with intervention-themed gradients
+- Haptic feedback for messages
+- Error handling with user-friendly messages
+
 #### 💾 Data & Architecture (Phase 1-2 - COMPLETE!)
 - **SwiftData** integration for persistence
 - **JSON-based** intervention data (easy maintenance)
@@ -65,20 +83,6 @@
 ---
 
 ### 🚧 **Coming Next**
-
-#### 👤 Profile Details (Phase 4)
-- Full-screen intervention profiles
-- Detailed pros/cons expansion
-- Stats visualization
-- Multiple images and diagrams
-- Share intervention info
-
-#### 💬 AI Chat (Phase 5)
-- Conversations with matched interventions
-- Powered by OpenAI or Anthropic
-- Each intervention has unique personality
-- Educational double entendres
-- Chat history persistence
 
 #### 📊 Enhanced Matches (Phase 6)
 - Stats on your swiping patterns
@@ -97,7 +101,7 @@
 | **UI** | SwiftUI |
 | **Data** | SwiftData |
 | **Project Gen** | XcodeGen |
-| **AI** | OpenAI / Anthropic (planned) |
+| **AI** | OpenAI GPT-4o / Anthropic Claude 3.5 |
 | **Architecture** | MVVM with @Observable |
 
 ---
@@ -108,7 +112,7 @@
 - **macOS** with Xcode 15+
 - **iOS 18+** device or simulator
 - **XcodeGen** ([install via Homebrew](https://github.com/yonaskolb/XcodeGen))
-- **API key** from OpenAI or Anthropic (for future chat feature)
+- **API key** from OpenAI or Anthropic (required for chat feature)
 
 ### Installation
 
@@ -130,11 +134,13 @@
 
    See [README.xcodegen.md](README.xcodegen.md) for detailed instructions.
 
-4. **Configure environment** (optional for now)
+4. **Configure API keys** (required for chat feature)
    ```bash
-   cp .env.example .env
-   # Edit .env and add your API key when ready
+   cp Config.plist.example DateAnIntervention/Config.plist
+   # Edit Config.plist with your OpenAI or Anthropic API key
    ```
+
+   See **[API_SETUP.md](API_SETUP.md)** for detailed setup instructions.
 
 5. **Open in Xcode**
    ```bash
@@ -170,13 +176,23 @@ DateAnIntervention/
 │   │   ├── SwipeView.swift
 │   │   ├── CardStackView.swift
 │   │   └── InterventionCardView.swift
+│   ├── Profile/                  # Profile details
+│   │   ├── ProfileDetailView.swift
+│   │   ├── ImageCarouselView.swift
+│   │   └── StatsGridView.swift
+│   ├── Chat/                     # Chat interface
+│   │   └── ChatView.swift
 │   ├── Matches/                  # Matches screen
 │   │   └── MatchesView.swift
 │   └── Components/               # Shared UI
+│       ├── MessageBubbleView.swift
 │       └── SettingsView.swift
 ├── ViewModels/                   # Business logic
-│   └── SwipeViewModel.swift
+│   ├── SwipeViewModel.swift
+│   └── ChatViewModel.swift
 ├── Services/                     # Utilities
+│   ├── Config.swift              # API key configuration
+│   ├── LLMService.swift          # Multi-provider AI integration
 │   └── HapticService.swift
 ├── Utilities/                    # Extensions
 │   └── ColorExtensions.swift
@@ -187,11 +203,11 @@ DateAnIntervention/
 
 ## 📚 Documentation
 
+- **[API_SETUP.md](API_SETUP.md)** - **Required**: API key configuration for chat feature
 - **[TASKS.md](TASKS.md)** - Complete implementation roadmap with progress tracking
 - **[INTERVENTIONS.md](INTERVENTIONS.md)** - Full catalog of 32 climate interventions with personalities
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - System design and technical architecture
 - **[STYLE_GUIDES.md](STYLE_GUIDES.md)** - UI/UX design principles and dating app aesthetic
-- **[API_INTEGRATION.md](API_INTEGRATION.md)** - OpenAI/Anthropic integration guide (future)
 - **[README.xcodegen.md](README.xcodegen.md)** - XcodeGen setup and usage
 - **[DEVELOPMENT_TEAM.md](DEVELOPMENT_TEAM.md)** - Setting up development team ID
 
@@ -204,15 +220,15 @@ DateAnIntervention/
 | **Phase 1** | ✅ Complete | Project Setup & Foundation |
 | **Phase 2** | ✅ Complete | Data Models & SwiftData |
 | **Phase 3** | ✅ Complete | Swipe Interface |
-| **Phase 4** | ⏸️ Next | Profile Details |
-| **Phase 5** | ⏸️ Planned | Chat Interface |
+| **Phase 4** | ✅ Complete | Profile Details |
+| **Phase 5** | ✅ Complete | Chat Interface (OpenAI & Claude) |
 | **Phase 6** | ⏸️ Planned | Matches Screen Enhancement |
 | **Phase 7** | ⏸️ Planned | Settings & Preferences |
 | **Phase 8** | ⏸️ Planned | Polish & Animations |
 | **Phase 9** | ⏸️ Planned | Testing & Bug Fixes |
 | **Phase 10** | ⏸️ Planned | Deployment & Distribution |
 
-**Progress**: 3/10 phases complete (30%)
+**Progress**: 5/10 phases complete (50%)
 
 See [TASKS.md](TASKS.md) for detailed task breakdown and progress.
 
