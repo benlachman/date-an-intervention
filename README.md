@@ -1,72 +1,116 @@
 # Date An Intervention 🌍💚
 
-A playful Tinder-style iOS app that helps you explore and learn about climate interventions through an engaging dating app interface. Swipe through various climate solutions—from stratospheric aerosol injection to coral nano-bubbles—and "match" with the interventions you'd be comfortable supporting.
+> **A Tinder-style iOS app for learning about climate interventions through swiping and AI-powered conversations**
 
-## Concept
+<div align="center">
 
-Climate interventions can be complex and intimidating. This app makes them approachable by presenting each intervention as a "date" with a personality, interests, and quirks. Swipe right on solutions you like, swipe left on those you don't, and chat with your matches to learn more about their impacts, risks, and implementation challenges—all through dating app style conversations.
+**Status**: 🚧 Active Development
 
-## Features
+**Phase**: 3 of 10 Complete | **Next**: Profile Details & AI Chat
 
-### 🎴 Swipe Interface
-- Smooth card-based swiping with spring animations
-- Drag gestures with rotation and haptic feedback
-- Visual indicators for like (right) and dislike (left)
-- Stack of 30+ intervention "profiles"
+[![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
+[![iOS](https://img.shields.io/badge/iOS-18.0+-blue.svg)](https://www.apple.com/ios/)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-✓-green.svg)](https://developer.apple.com/xcode/swiftui/)
+[![SwiftData](https://img.shields.io/badge/SwiftData-✓-green.svg)](https://developer.apple.com/xcode/swiftdata/)
 
-### 👤 Intervention Profiles
-- Dating app style profiles with "bio" and personality traits
-- Pros presented as "Interests" and cons as "Dealbreakers"
-- Stats showing research level, tech readiness, and support
-- Multiple images (climate photos + SF Symbols with gradients)
-- Categories: SRM, Ocean-based, Ice Preservation, Localized, Open Systems
+</div>
 
-### 💬 Chat with Interventions
-- AI-powered conversations (OpenAI/Anthropic)
-- Each intervention has a unique personality and conversation style
-- Dating app aesthetic with climate-focused double entendres
-- Learn about impacts, risks, current research, and implementation
-- Conversations persist during your session
+---
 
-### 📊 Matches Screen
-- View all interventions you've liked
+## 📱 What is this?
+
+**Date An Intervention** gamifies climate science education by presenting **32 climate interventions** as dating profiles. Swipe through solutions (from solar geoengineering to coral restoration), "match" with interesting ones, and have AI-powered conversations to learn about their environmental implications, trade-offs, and feasibility.
+
+**Think Tinder meets climate science!**
+
+---
+
+## ✨ Features
+
+### ✅ **Currently Implemented**
+
+#### 🎴 Swipe Interface (Phase 3 - COMPLETE!)
+- Beautiful Tinder-style card stack with **3D depth effect**
+- Smooth **drag gestures** with natural rotation
+- **Visual feedback**: "LIKE" (green) / "NOPE" (red) indicators
+- **Haptic feedback** for engaging tactile response
+- **Spring animations** for smooth card movements
+- **Empty state** with deck reset functionality
+
+#### 🗂️ 32 Climate Interventions (Phase 2 - COMPLETE!)
+**Categories:**
+- **Stratospheric/SRM** (3): SAI, Marine Cloud Brightening, Cirrus Thinning
+- **Ice Preservation** (4): Ice Sheet Stabilization, Arctic Restoration, Glacier Protection, Permafrost Protection
+- **Ocean-Based** (6): Iron Fertilization, Alkalinity Enhancement, Coral Nano-Bubbles, Artificial Upwelling, Kelp Farming, Hydrogen from Algae
+- **Land-Based** (7): Enhanced Weathering, Biochar, Afforestation, Soil Carbon, Peatland Restoration, Engineered Crops
+- **Localized** (8): Urban Albedo, Mangroves, Wetlands, Green Roofs, Urban Forestry, Cloud Seeding, Desert Greening, Fog Harvesting
+- **Advanced/Emerging** (4): Direct Air Capture, BECCS, Mineralization, Space Reflectors
+
+**Each intervention includes:**
+- Unique personality and bio
+- Pros/cons list
+- SF Symbol icon with gradient background
+- Stats (research level, tech readiness, public support)
+- Chat personality and system prompt
+- Opening line for matches
+
+#### 💾 Data & Architecture (Phase 1-2 - COMPLETE!)
+- **SwiftData** integration for persistence
+- **JSON-based** intervention data (easy maintenance)
+- First-launch auto-seeding
+- Filters already-swiped cards
+- MVVM architecture with @Observable ViewModels
+- XcodeGen for project generation
+
+---
+
+### 🚧 **Coming Next**
+
+#### 👤 Profile Details (Phase 4)
+- Full-screen intervention profiles
+- Detailed pros/cons expansion
+- Stats visualization
+- Multiple images and diagrams
+- Share intervention info
+
+#### 💬 AI Chat (Phase 5)
+- Conversations with matched interventions
+- Powered by OpenAI or Anthropic
+- Each intervention has unique personality
+- Educational double entendres
+- Chat history persistence
+
+#### 📊 Enhanced Matches (Phase 6)
 - Stats on your swiping patterns
-- Resume profiles and chats with your matches
+- Category preferences analysis
+- Compare interventions
+- Intervention "chemistry" scores
 
-### 💾 Data Persistence
-- SwiftData integration saves all your swipes
-- Review your choices across sessions
-- Chat history stored locally
+---
 
-## Tech Stack
+## 🏗️ Tech Stack
 
-- **iOS 18+** with SwiftUI
-- **SwiftData** for local persistence
-- **Swift Package Manager** for dependencies
-- **LLM Integration** (OpenAI or Anthropic API)
-- **SF Symbols** + custom gradients for visuals
-- **Combine** for reactive patterns
+| Layer | Technology |
+|-------|-----------|
+| **Platform** | iOS 18.0+ |
+| **Language** | Swift 5.9 |
+| **UI** | SwiftUI |
+| **Data** | SwiftData |
+| **Project Gen** | XcodeGen |
+| **AI** | OpenAI / Anthropic (planned) |
+| **Architecture** | MVVM with @Observable |
 
-## Interventions Catalog
+---
 
-The app includes 30+ climate interventions across categories:
-
-- **Stratospheric/SRM**: SO₂ aerosol injection, marine cloud brightening, cirrus cloud thinning
-- **Ice Stabilization**: Ice sheet anchoring, Arctic ice restoration, glacier protection
-- **Ocean-Based**: Iron fertilization, ocean alkalinity enhancement, coral nano-bubbles
-- **Land-Based**: Enhanced weathering, afforestation, biochar
-- **Localized**: Urban cooling, wetland restoration, mangrove planting
-
-See [INTERVENTIONS.md](INTERVENTIONS.md) for the complete list with personality profiles.
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-- macOS with Xcode 15+
-- iOS 18+ device or simulator
-- API key from OpenAI or Anthropic (for chat feature)
+- **macOS** with Xcode 15+
+- **iOS 18+** device or simulator
+- **XcodeGen** ([install via Homebrew](https://github.com/yonaskolb/XcodeGen))
+- **API key** from OpenAI or Anthropic (for future chat feature)
 
-### Setup
+### Installation
 
 1. **Clone the repository**
    ```bash
@@ -74,97 +118,140 @@ See [INTERVENTIONS.md](INTERVENTIONS.md) for the complete list with personality 
    cd date-an-intervention
    ```
 
-2. **Generate Xcode project** (requires [XcodeGen](https://github.com/yonaskolb/XcodeGen))
+2. **Install XcodeGen** (if not already installed)
    ```bash
-   brew install xcodegen  # If not already installed
+   brew install xcodegen
+   ```
+
+3. **Generate Xcode project**
+   ```bash
    xcodegen generate
    ```
 
    See [README.xcodegen.md](README.xcodegen.md) for detailed instructions.
 
-3. **Configure API keys**
+4. **Configure environment** (optional for now)
    ```bash
    cp .env.example .env
-   # Edit .env and add your API key
+   # Edit .env and add your API key when ready
    ```
 
-4. **Open in Xcode**
+5. **Open in Xcode**
    ```bash
    open DateAnIntervention.xcodeproj
    ```
 
-5. **Build and run**
+6. **Build and run**
    - Select your target device/simulator (iOS 18.0+)
-   - Press Cmd+R to build and run
-   - Intervention data will seed automatically on first launch
-
-### API Configuration
-
-The chat feature requires an LLM API key:
-
-1. Get an API key from [OpenAI](https://platform.openai.com) or [Anthropic](https://console.anthropic.com)
-2. Add it to your `.env` file (never commit this file!)
-3. The app will use it to power intervention conversations
-
-See [docs/API_INTEGRATION.md](docs/API_INTEGRATION.md) for detailed setup.
-
-## Project Structure
-
-```
-DateAnIntervention/
-├── App/                    # App entry point and main views
-├── Models/                 # SwiftData models
-├── Data/                   # Intervention dataset
-├── Views/                  # UI components
-│   ├── Swipe/             # Card stack and swiping
-│   ├── Profile/           # Detail views
-│   ├── Chat/              # Messaging interface
-│   └── Matches/           # Results screen
-├── ViewModels/            # Business logic
-├── Services/              # API integration
-└── Assets.xcassets        # Images and colors
-```
-
-See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed system design.
-
-## Development
-
-### Task Breakdown
-See [TASKS.md](TASKS.md) for a complete list of implementation tasks organized by phase.
-
-### AI-Assisted Development
-This project includes `.claude/` instructions for AI coding assistants. Use:
-- `/review-task` - Get the next task to work on
-- `/continue` - Resume previous work
-
-### Style Guide
-Follow the dating app aesthetic guidelines in [docs/DATING_APP_STYLE_GUIDE.md](docs/DATING_APP_STYLE_GUIDE.md).
-
-## Documentation
-
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System design and technical decisions
-- **[TASKS.md](TASKS.md)** - Detailed implementation task list
-- **[INTERVENTIONS.md](INTERVENTIONS.md)** - Complete intervention profiles
-- **[docs/](docs/)** - Detailed specifications for components
-
-## Contributing
-
-This is an educational/experimental project exploring playful approaches to climate communication. Contributions welcome!
-
-1. Check [TASKS.md](TASKS.md) for open work
-2. Create a feature branch
-3. Submit a PR with clear description
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Climate intervention data based on various research sources
-- Inspired by the need to make complex climate topics more accessible
-- Built with SwiftUI and modern iOS development practices
+   - Press `Cmd+R` to build and run
+   - **32 interventions seed automatically** on first launch!
 
 ---
 
-**Note**: This app is for educational purposes. Climate interventions are complex topics with real-world implications. The "dating" framing is meant to make learning engaging, not to trivialize the science or policy considerations.
+## 📁 Project Structure
+
+```
+DateAnIntervention/
+├── App/                          # App entry point
+│   ├── DateAnInterventionApp.swift
+│   └── ContentView.swift
+├── Models/                       # SwiftData models
+│   ├── Intervention.swift
+│   ├── InterventionCategory.swift
+│   ├── SwipeDecision.swift
+│   └── ChatMessage.swift
+├── Data/                         # Data loading
+│   ├── InterventionsData.swift   # JSON loader
+│   └── SeedDataService.swift     # First-launch seeding
+├── Resources/                    # Data files
+│   └── interventions.json        # 32 interventions data
+├── Views/
+│   ├── Swipe/                    # Swipe interface
+│   │   ├── SwipeView.swift
+│   │   ├── CardStackView.swift
+│   │   └── InterventionCardView.swift
+│   ├── Matches/                  # Matches screen
+│   │   └── MatchesView.swift
+│   └── Components/               # Shared UI
+│       └── SettingsView.swift
+├── ViewModels/                   # Business logic
+│   └── SwipeViewModel.swift
+├── Services/                     # Utilities
+│   └── HapticService.swift
+├── Utilities/                    # Extensions
+│   └── ColorExtensions.swift
+└── Assets.xcassets/              # Images & colors
+```
+
+---
+
+## 📚 Documentation
+
+- **[TASKS.md](TASKS.md)** - Complete implementation roadmap with progress tracking
+- **[INTERVENTIONS.md](INTERVENTIONS.md)** - Full catalog of 32 climate interventions with personalities
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System design and technical architecture
+- **[STYLE_GUIDES.md](STYLE_GUIDES.md)** - UI/UX design principles and dating app aesthetic
+- **[API_INTEGRATION.md](API_INTEGRATION.md)** - OpenAI/Anthropic integration guide (future)
+- **[README.xcodegen.md](README.xcodegen.md)** - XcodeGen setup and usage
+- **[DEVELOPMENT_TEAM.md](DEVELOPMENT_TEAM.md)** - Setting up development team ID
+
+---
+
+## 🎯 Project Phases
+
+| Phase | Status | Description |
+|-------|--------|-------------|
+| **Phase 1** | ✅ Complete | Project Setup & Foundation |
+| **Phase 2** | ✅ Complete | Data Models & SwiftData |
+| **Phase 3** | ✅ Complete | Swipe Interface |
+| **Phase 4** | ⏸️ Next | Profile Details |
+| **Phase 5** | ⏸️ Planned | Chat Interface |
+| **Phase 6** | ⏸️ Planned | Matches Screen Enhancement |
+| **Phase 7** | ⏸️ Planned | Settings & Preferences |
+| **Phase 8** | ⏸️ Planned | Polish & Animations |
+| **Phase 9** | ⏸️ Planned | Testing & Bug Fixes |
+| **Phase 10** | ⏸️ Planned | Deployment & Distribution |
+
+**Progress**: 3/10 phases complete (30%)
+
+See [TASKS.md](TASKS.md) for detailed task breakdown and progress.
+
+---
+
+## 🤝 Contributing
+
+This is currently a solo educational project, but feedback and suggestions are welcome! Please open an issue if you find bugs or have ideas for improvements.
+
+---
+
+## 📖 Learning Resources
+
+Want to learn more about climate interventions?
+
+- [IPCC Reports](https://www.ipcc.ch/) - Authoritative climate science
+- [Carbon Brief](https://www.carbonbrief.org/) - Climate science explainers
+- [Climate Intervention Research](https://www.climateinterventionresearch.org/) - Academic research hub
+
+---
+
+## 📝 License
+
+[Add your license here]
+
+---
+
+## 🙏 Acknowledgments
+
+- Climate intervention data synthesized from academic research and IPCC reports
+- Inspired by dating apps' engagement patterns applied to education
+- Built with SwiftUI and SwiftData on iOS 18
+
+---
+
+<div align="center">
+
+**Made with 💚 for climate education**
+
+*Swipe right on solutions. Learn. Take action.*
+
+</div>
