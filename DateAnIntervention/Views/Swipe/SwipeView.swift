@@ -12,6 +12,8 @@ struct SwipeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var interventions: [Intervention]
 
+    @State private var viewModel: SwipeViewModel?
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -26,17 +28,20 @@ struct SwipeView: View {
                 VStack {
                     if interventions.isEmpty {
                         EmptyStateView()
+                    } else if let viewModel = viewModel {
+                        CardStackView(viewModel: viewModel)
+                            .padding(.top, 20)
                     } else {
-                        Text("Swipe interface coming soon!")
-                            .font(.title)
-                            .padding()
-
-                        Text("\(interventions.count) interventions loaded")
-                            .foregroundStyle(.secondary)
+                        ProgressView("Loading...")
                     }
                 }
             }
             .navigationTitle("Discover")
+            .onAppear {
+                if viewModel == nil {
+                    viewModel = SwipeViewModel(modelContext: modelContext)
+                }
+            }
         }
     }
 }
