@@ -32,7 +32,9 @@ struct MatchesView: View {
                                     MatchCardView(intervention: intervention)
                                         .onTapGesture {
                                             selectedIntervention = intervention
-                                            showingProfile = true
+                                            DispatchQueue.main.async {
+                                                showingProfile = true
+                                            }
                                         }
                                 }
                             }

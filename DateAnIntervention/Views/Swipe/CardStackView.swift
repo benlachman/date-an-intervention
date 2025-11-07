@@ -51,7 +51,9 @@ struct CardStackView: View {
                         .onTapGesture {
                             if index == 0 {
                                 selectedIntervention = intervention
-                                showingProfile = true
+                                DispatchQueue.main.async {
+                                    showingProfile = true
+                                }
                             }
                         }
                         .gesture(

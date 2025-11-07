@@ -64,9 +64,9 @@ struct SwipeView: View {
                 }
             } label: {
                 Image(systemName: "xmark")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 20, weight: .bold))
                     .foregroundStyle(.white)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 48, height: 48)
                     .background(
                         Circle()
                             .fill(.red)
@@ -79,12 +79,12 @@ struct SwipeView: View {
                 // Profile view is now accessed via tap on card
             } label: {
                 Image(systemName: "info.circle.fill")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 18, weight: .bold))
                     .foregroundStyle(.blue)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 40, height: 40)
                     .background(
                         Circle()
-                            .fill(.white)
+                            .fill(Color(uiColor: .systemBackground))
                             .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
                     )
             }
@@ -96,9 +96,9 @@ struct SwipeView: View {
                 }
             } label: {
                 Image(systemName: "heart.fill")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 20, weight: .bold))
                     .foregroundStyle(.white)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 48, height: 48)
                     .background(
                         Circle()
                             .fill(.green)
