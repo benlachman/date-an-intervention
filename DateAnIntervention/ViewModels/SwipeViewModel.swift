@@ -50,10 +50,10 @@ class SwipeViewModel {
             let allDecisions = try modelContext.fetch(swipeDescriptor)
             let swipedInterventionIds = Set(allDecisions.compactMap { $0.intervention?.id })
 
-            // Filter out interventions that have already been swiped
-            interventions = allInterventions.filter { intervention in
-                !swipedInterventionIds.contains(intervention.id)
-            }
+            // Filter out interventions that have already been swiped and randomize order
+            interventions = allInterventions
+                .filter { !swipedInterventionIds.contains($0.id) }
+                .shuffled()
         } catch {
             print("Error loading interventions: \(error)")
         }
@@ -93,7 +93,21 @@ class SwipeViewModel {
     // MARK: - Utility
 
     func reset() {
-        currentIndex = 0
-        loadInterventions()
+        // Delete all swipe decisions to allow re-swiping
+        let swipeDescriptor = FetchDescriptor<SwipeDecision>()
+
+        do {
+            let allDecisions = try modelContext.fetch(swipeDescriptor)
+            for decision in allDecisions {
+                modelContext.delete(decision)
+            }
+            try modelContext.save()
+
+            // Reset index and reload
+            currentIndex = 0
+            loadInterventions()
+        } catch {
+            print("Error resetting deck: \(error)")
+        }
     }
 }

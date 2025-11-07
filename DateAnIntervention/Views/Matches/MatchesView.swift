@@ -34,7 +34,7 @@ struct MatchesView: View {
                     }
                 }
             }
-            .navigationTitle("Your Matches")
+            .navigationTitle("Matches")
         }
     }
 }

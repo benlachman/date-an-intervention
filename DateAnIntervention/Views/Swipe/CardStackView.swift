@@ -201,11 +201,11 @@ struct CardStackView: View {
     }
 
     private func cardWidth(for geometry: GeometryProxy) -> CGFloat {
-        min(geometry.size.width * 0.9, 400)
+        min(geometry.size.width * 0.88, 380)
     }
 
     private func cardHeight(for geometry: GeometryProxy) -> CGFloat {
-        min(geometry.size.height * 0.7, 600)
+        min(geometry.size.height * 0.75, 650)
     }
 }
 
