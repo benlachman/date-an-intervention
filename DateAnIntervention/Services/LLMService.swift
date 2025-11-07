@@ -126,6 +126,7 @@ class LLMService: LLMServiceProtocol {
         - NO formal language, NO essay-style responses
         - Think: "how would I text this?" not "how would I write this?"
         - Brief, punchy, fun - this is casual texting, not a presentation
+        - Use emojis VERY sparingly - maybe 1 in every 5-6 messages, not every message
         """
 
         // Build messages array
@@ -219,6 +220,7 @@ class LLMService: LLMServiceProtocol {
         - NO formal language, NO essay-style responses
         - Think: "how would I text this?" not "how would I write this?"
         - Brief, punchy, fun - this is casual texting, not a presentation
+        - Use emojis VERY sparingly - maybe 1 in every 5-6 messages, not every message
         """
 
         // Build messages array for Anthropic format
