@@ -114,9 +114,23 @@ class LLMService: LLMServiceProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
 
+        // Enhance system prompt for ultra-brief, human-like responses
+        let enhancedPrompt = """
+        \(systemPrompt)
+
+        CRITICAL INSTRUCTIONS:
+        - Keep responses EXTREMELY short (1-2 sentences MAX, often just 1)
+        - Sound like texting a crush on Tinder - casual, playful, natural
+        - Use lowercase sometimes, contractions, casual language
+        - Be flirty but conversational - like a real human would text
+        - NO formal language, NO essay-style responses
+        - Think: "how would I text this?" not "how would I write this?"
+        - Brief, punchy, fun - this is casual texting, not a presentation
+        """
+
         // Build messages array
         var messages: [[String: String]] = [
-            ["role": "system", "content": systemPrompt]
+            ["role": "system", "content": enhancedPrompt]
         ]
 
         // Add conversation history
@@ -193,6 +207,20 @@ class LLMService: LLMServiceProtocol {
         request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
         request.setValue("2023-06-01", forHTTPHeaderField: "anthropic-version")
 
+        // Enhance system prompt for ultra-brief, human-like responses
+        let enhancedPrompt = """
+        \(systemPrompt)
+
+        CRITICAL INSTRUCTIONS:
+        - Keep responses EXTREMELY short (1-2 sentences MAX, often just 1)
+        - Sound like texting a crush on Tinder - casual, playful, natural
+        - Use lowercase sometimes, contractions, casual language
+        - Be flirty but conversational - like a real human would text
+        - NO formal language, NO essay-style responses
+        - Think: "how would I text this?" not "how would I write this?"
+        - Brief, punchy, fun - this is casual texting, not a presentation
+        """
+
         // Build messages array for Anthropic format
         var messages: [[String: Any]] = []
 
@@ -214,7 +242,7 @@ class LLMService: LLMServiceProtocol {
             "model": model,
             "max_tokens": maxTokens,
             "temperature": temperature,
-            "system": systemPrompt,
+            "system": enhancedPrompt,
             "messages": messages
         ]
 
