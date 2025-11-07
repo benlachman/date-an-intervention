@@ -158,11 +158,19 @@ struct ProfileDetailView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
                 .background(
-                    // Background blur for button area
-                    Rectangle()
-                        .fill(.ultraThinMaterial)
-                        .frame(height: 100)
-                        .ignoresSafeArea(edges: .bottom)
+                    // Background blur with gradient transparency
+                    ZStack {
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .mask(
+                                LinearGradient(
+                                    colors: [.clear, .black],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
+                    }
+                    .ignoresSafeArea(edges: .bottom)
                 )
             }
             .sheet(isPresented: $showChat) {
