@@ -16,6 +16,10 @@ struct CardStackView: View {
     @State private var dragRotation: Double = 0
     @State private var hasReachedThreshold = false
 
+    // Profile detail state
+    @State private var showingProfile = false
+    @State private var selectedIntervention: Intervention?
+
     // Constants
     private let swipeThreshold: CGFloat = 100
     private let rotationMultiplier: Double = 0.15
@@ -47,6 +51,12 @@ struct CardStackView: View {
                         .gesture(
                             index == 0 ? createDragGesture() : nil
                         )
+                        .onTapGesture {
+                            if index == 0 {
+                                selectedIntervention = intervention
+                                showingProfile = true
+                            }
+                        }
                 }
 
                 // Empty state
@@ -55,6 +65,11 @@ struct CardStackView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .sheet(isPresented: $showingProfile) {
+            if let intervention = selectedIntervention {
+                ProfileDetailView(intervention: intervention)
+            }
         }
     }
 

@@ -29,8 +29,15 @@ struct SwipeView: View {
                     if interventions.isEmpty {
                         EmptyStateView()
                     } else if let viewModel = viewModel {
-                        CardStackView(viewModel: viewModel)
-                            .padding(.top, 20)
+                        VStack {
+                            CardStackView(viewModel: viewModel)
+                                .padding(.top, 20)
+
+                            // Action buttons
+                            if !viewModel.isEmpty {
+                                actionButtons(viewModel: viewModel)
+                            }
+                        }
                     } else {
                         ProgressView("Loading...")
                     }
@@ -43,6 +50,63 @@ struct SwipeView: View {
                 }
             }
         }
+    }
+
+    // MARK: - Action Buttons
+
+    @ViewBuilder
+    private func actionButtons(viewModel: SwipeViewModel) -> some View {
+        HStack(spacing: 30) {
+            // Dislike button
+            Button {
+                if let current = viewModel.currentIntervention {
+                    viewModel.swipeLeft(on: current)
+                }
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 60, height: 60)
+                    .background(
+                        Circle()
+                            .fill(.red)
+                            .shadow(color: .red.opacity(0.4), radius: 8, x: 0, y: 4)
+                    )
+            }
+
+            // Info button
+            Button {
+                // Profile view is now accessed via tap on card
+            } label: {
+                Image(systemName: "info.circle.fill")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(.blue)
+                    .frame(width: 50, height: 50)
+                    .background(
+                        Circle()
+                            .fill(.white)
+                            .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                    )
+            }
+
+            // Like button
+            Button {
+                if let current = viewModel.currentIntervention {
+                    viewModel.swipeRight(on: current)
+                }
+            } label: {
+                Image(systemName: "heart.fill")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 60, height: 60)
+                    .background(
+                        Circle()
+                            .fill(.green)
+                            .shadow(color: .green.opacity(0.4), radius: 8, x: 0, y: 4)
+                    )
+            }
+        }
+        .padding(.bottom, 30)
     }
 }
 
