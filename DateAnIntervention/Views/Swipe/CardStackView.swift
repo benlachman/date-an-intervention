@@ -48,15 +48,15 @@ struct CardStackView: View {
                         // Apply drag gesture only to top card
                         .offset(index == 0 ? dragOffset : .zero)
                         .rotationEffect(.degrees(index == 0 ? dragRotation : 0))
-                        .gesture(
-                            index == 0 ? createDragGesture() : nil
-                        )
                         .onTapGesture {
                             if index == 0 {
                                 selectedIntervention = intervention
                                 showingProfile = true
                             }
                         }
+                        .gesture(
+                            index == 0 ? createDragGesture() : nil
+                        )
                 }
 
                 // Empty state
@@ -220,7 +220,7 @@ struct CardStackView: View {
     }
 
     private func cardHeight(for geometry: GeometryProxy) -> CGFloat {
-        min(geometry.size.height * 0.75, 650)
+        min(geometry.size.height * 0.80, 700)
     }
 }
 
