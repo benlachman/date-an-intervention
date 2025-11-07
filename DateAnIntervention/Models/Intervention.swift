@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Intervention {
+final class Intervention: Identifiable {
     var id: UUID
     var name: String
     var categoryRaw: String

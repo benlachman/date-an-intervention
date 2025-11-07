@@ -14,7 +14,6 @@ struct MatchesView: View {
     private var likedDecisions: [SwipeDecision]
 
     @State private var selectedIntervention: Intervention?
-    @State private var showingProfile = false
 
     var body: some View {
         NavigationStack {
@@ -32,9 +31,6 @@ struct MatchesView: View {
                                     MatchCardView(intervention: intervention)
                                         .onTapGesture {
                                             selectedIntervention = intervention
-                                            DispatchQueue.main.async {
-                                                showingProfile = true
-                                            }
                                         }
                                 }
                             }
@@ -44,10 +40,8 @@ struct MatchesView: View {
                 }
             }
             .navigationTitle("Matches")
-            .sheet(isPresented: $showingProfile) {
-                if let intervention = selectedIntervention {
-                    ProfileDetailView(intervention: intervention)
-                }
+            .sheet(item: $selectedIntervention) { intervention in
+                ProfileDetailView(intervention: intervention)
             }
         }
     }

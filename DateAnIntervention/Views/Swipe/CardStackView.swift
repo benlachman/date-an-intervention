@@ -17,7 +17,6 @@ struct CardStackView: View {
     @State private var hasReachedThreshold = false
 
     // Profile detail state
-    @State private var showingProfile = false
     @State private var selectedIntervention: Intervention?
 
     // Constants
@@ -51,9 +50,6 @@ struct CardStackView: View {
                         .onTapGesture {
                             if index == 0 {
                                 selectedIntervention = intervention
-                                DispatchQueue.main.async {
-                                    showingProfile = true
-                                }
                             }
                         }
                         .gesture(
@@ -68,10 +64,8 @@ struct CardStackView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .sheet(isPresented: $showingProfile) {
-            if let intervention = selectedIntervention {
-                ProfileDetailView(intervention: intervention)
-            }
+        .sheet(item: $selectedIntervention) { intervention in
+            ProfileDetailView(intervention: intervention)
         }
     }
 

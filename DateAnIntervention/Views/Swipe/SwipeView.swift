@@ -13,6 +13,7 @@ struct SwipeView: View {
     @Query private var interventions: [Intervention]
 
     @State private var viewModel: SwipeViewModel?
+    @State private var selectedIntervention: Intervention?
 
     var body: some View {
         NavigationStack {
@@ -49,6 +50,9 @@ struct SwipeView: View {
                     viewModel = SwipeViewModel(modelContext: modelContext)
                 }
             }
+            .sheet(item: $selectedIntervention) { intervention in
+                ProfileDetailView(intervention: intervention)
+            }
         }
     }
 
@@ -76,7 +80,9 @@ struct SwipeView: View {
 
             // Info button
             Button {
-                // Profile view is now accessed via tap on card
+                if let current = viewModel.currentIntervention {
+                    selectedIntervention = current
+                }
             } label: {
                 Image(systemName: "info.circle.fill")
                     .font(.system(size: 18, weight: .bold))
