@@ -1,10 +1,11 @@
 name: DateAnIntervention
 options:
-  bundleIdPrefix: com.yourdomain
+  bundleIdPrefix: com.nicemohawk
   deploymentTarget:
     iOS: "18.0"
   developmentLanguage: en
   xcodeVersion: "15.0"
+  developmentTeam: YOUR_TEAM_ID  # Replace with your Apple Developer Team ID to avoid reselecting
 
 settings:
   SWIFT_VERSION: "5.9"
@@ -27,8 +28,9 @@ targets:
     sources:
       - DateAnIntervention
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.yourdomain.dateanintervention
+      PRODUCT_BUNDLE_IDENTIFIER: com.nicemohawk.interventiontinder
       INFOPLIST_KEY_CFBundleDisplayName: "Date An Intervention"
+      CODE_SIGN_STYLE: Automatic
       INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
       ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
