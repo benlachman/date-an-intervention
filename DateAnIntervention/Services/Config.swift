@@ -12,7 +12,9 @@ struct Config {
     // MARK: - API Keys
 
     /// OpenAI API Key
-    /// Set this in Config.plist or use the default placeholder
+    /// Priority: Environment Variable > Config.plist > Placeholder
+    /// For Xcode Cloud: Set OPENAI_API_KEY in App Store Connect environment variables
+    /// For local dev: Set in Config.plist
     static var openAIAPIKey: String {
         if let key = getConfigValue(for: "OPENAI_API_KEY"), !key.isEmpty {
             return key
@@ -21,7 +23,9 @@ struct Config {
     }
 
     /// Anthropic API Key
-    /// Set this in Config.plist or use the default placeholder
+    /// Priority: Environment Variable > Config.plist > Placeholder
+    /// For Xcode Cloud: Set ANTHROPIC_API_KEY in App Store Connect environment variables
+    /// For local dev: Set in Config.plist
     static var anthropicAPIKey: String {
         if let key = getConfigValue(for: "ANTHROPIC_API_KEY"), !key.isEmpty {
             return key
@@ -70,17 +74,24 @@ struct Config {
 
     // MARK: - Private Helpers
 
-    /// Reads a value from Config.plist
+    /// Reads a value from environment variables, Config.plist, or Info.plist
+    /// Priority: Environment Variables > Config.plist > Info.plist
+    /// This allows Xcode Cloud to use environment variables while local dev uses Config.plist
     private static func getConfigValue(for key: String) -> String? {
-        // First try to load from Config.plist
+        // 1. First check environment variables (for Xcode Cloud / CI)
+        if let envValue = ProcessInfo.processInfo.environment[key], !envValue.isEmpty {
+            return envValue
+        }
+
+        // 2. Then try to load from Config.plist (for local development)
         if let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
            let config = NSDictionary(contentsOfFile: path),
-           let value = config[key] as? String {
+           let value = config[key] as? String, !value.isEmpty {
             return value
         }
 
-        // Fall back to Info.plist
-        if let value = Bundle.main.object(forInfoDictionaryKey: key) as? String {
+        // 3. Fall back to Info.plist (optional fallback)
+        if let value = Bundle.main.object(forInfoDictionaryKey: key) as? String, !value.isEmpty {
             return value
         }
 
