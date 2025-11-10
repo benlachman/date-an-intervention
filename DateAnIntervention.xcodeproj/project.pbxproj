@@ -31,6 +31,7 @@
 		B0B8207AE8681C488559DB0C /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24ADE3F361019ADDB0134EE /* ProfileDetailView.swift */; };
 		B1F021F6ACC8B1A24E8411D6 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3548D55D950DD9651FC143EF /* SwipeView.swift */; };
 		B5009BF52EBDBBD600A853F0 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5009BF42EBDBBD600A853F0 /* Config.plist */; };
+		B5009C042EBE50C400A853F0 /* InterventionTinder.icon in Resources */ = {isa = PBXBuildFile; fileRef = B5009C032EBE50C400A853F0 /* InterventionTinder.icon */; };
 		B647361DFAC3EBDEC8B3B00C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD461DB90D3F0B9391C70F15 /* Config.swift */; };
 		BDE35CBC555A427B07F8520A /* SwipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA95E6B8C63896108E824A /* SwipeViewModel.swift */; };
 		ED6511995344372A85DB9485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620BD5DBAFD992371EFFF6E7 /* ContentView.swift */; };
@@ -60,12 +61,13 @@
 		AD461DB90D3F0B9391C70F15 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B4D78B661B75CD0446983778 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		B5009BF42EBDBBD600A853F0 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		B5009C032EBE50C400A853F0 /* InterventionTinder.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = InterventionTinder.icon; sourceTree = "<group>"; };
 		BC6F4724FA83C292A6A5EEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D24ADE3F361019ADDB0134EE /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
 		DDDBE8A4C915488748E3487C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DEDEC62F179000BDB1213531 /* SeedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedDataService.swift; sourceTree = "<group>"; };
 		E9AF1A701CCF1B1683923503 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
-		ECA49B1AC9211933BD46762A /* DateAnIntervention.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DateAnIntervention.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECA49B1AC9211933BD46762A /* DateAnIntervention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateAnIntervention.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -147,6 +149,7 @@
 		3CAE5A295C0F9DD3F43F0622 = {
 			isa = PBXGroup;
 			children = (
+				B5009C032EBE50C400A853F0 /* InterventionTinder.icon */,
 				B5009BF42EBDBBD600A853F0 /* Config.plist */,
 				2D1C56047E5A7E9DA0C57450 /* DateAnIntervention */,
 				F2FEBD6AD658F4E5C1C4EE0D /* Products */,
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65CBAC4E9137E2864994BECD /* Assets.xcassets in Resources */,
+				B5009C042EBE50C400A853F0 /* InterventionTinder.icon in Resources */,
 				B5009BF52EBDBBD600A853F0 /* Config.plist in Resources */,
 				76C615700D5C978E6E1B22E8 /* interventions.json in Resources */,
 			);
@@ -466,14 +470,19 @@
 		2C6D84417B168341D2AB4B16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = InterventionTinder;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GYV9U8338K;
 				INFOPLIST_FILE = DateAnIntervention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Date An Intervention";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -488,14 +497,19 @@
 		D873505C8B719AF1DCD0E64D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = InterventionTinder;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GYV9U8338K;
 				INFOPLIST_FILE = DateAnIntervention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Date An Intervention";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
