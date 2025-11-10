@@ -174,9 +174,7 @@ struct ProfileDetailView: View {
                 )
             }
             .sheet(isPresented: $showChat) {
-                // TODO: Replace with ChatView when implemented
-                Text("Chat with \(intervention.name)")
-                    .font(.title)
+                ChatView(intervention: intervention)
             }
         }
     }
